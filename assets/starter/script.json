@@ -1,0 +1,153 @@
+[
+  {
+    "sceneId": "reuse-hook",
+    "kind": "hook",
+    "speaker": "M",
+    "text": "同一套人物，不用重画，能把新故事演出来吗？",
+    "visual": {
+      "pan": [
+        {
+          "at": 0,
+          "pose": 2,
+          "gaze": "viewer"
+        },
+        {
+          "at": 1.5,
+          "pose": 1,
+          "gaze": "viewer"
+        }
+      ],
+      "chili": [
+        {
+          "at": 0,
+          "pose": 2,
+          "gaze": "partner"
+        }
+      ]
+    }
+  },
+  {
+    "sceneId": "hello-pan",
+    "kind": "intro",
+    "speaker": "M",
+    "text": "大家好，我是潘哥。",
+    "compositionId": "intro-room",
+    "continuityGroup": "intro",
+    "visual": {
+      "pan": [
+        {
+          "at": 0,
+          "pose": 0,
+          "gaze": "viewer"
+        },
+        {
+          "at": 1.3,
+          "pose": 2,
+          "gaze": "viewer"
+        }
+      ],
+      "chili": [
+        {
+          "at": 0,
+          "pose": 3,
+          "gaze": "partner"
+        }
+      ]
+    }
+  },
+  {
+    "sceneId": "hello-chili",
+    "kind": "intro",
+    "speaker": "F",
+    "text": "我是小辣。今天看看，已有的素材能怎么接起来？",
+    "compositionId": "intro-room",
+    "continuityGroup": "intro",
+    "visual": {
+      "pan": [
+        {
+          "at": 0,
+          "pose": 1,
+          "gaze": "partner"
+        }
+      ],
+      "chili": [
+        {
+          "at": 0,
+          "pose": 0,
+          "gaze": "viewer"
+        },
+        {
+          "at": 1.5,
+          "pose": 2,
+          "gaze": "partner"
+        }
+      ]
+    }
+  },
+  {
+    "sceneId": "chip-open",
+    "kind": "chip",
+    "speaker": "M",
+    "text": "先让芯片分开，再看看里头的数据怎么传。",
+    "visual": {}
+  },
+  {
+    "sceneId": "data-flow",
+    "kind": "array",
+    "speaker": "F",
+    "text": "这些格子是在一边计算，一边往后传吗？",
+    "visual": {}
+  },
+  {
+    "sceneId": "map-demo",
+    "kind": "geofence",
+    "speaker": "M",
+    "text": "地图里的范围也是会变的。这是示意，不是真实服务地图。",
+    "visual": {}
+  },
+  {
+    "sceneId": "cost-demo",
+    "kind": "cost",
+    "speaker": "M",
+    "text": "账单要按实际条件算。这一页的数字，只用来演示计算。",
+    "visual": {
+      "price": 20000,
+      "monthly": 100,
+      "freeMonths": 1
+    }
+  },
+  {
+    "sceneId": "gates-demo",
+    "kind": "gates",
+    "speaker": "F",
+    "text": "买到了东西，也得确认自己有没有这些使用权限。",
+    "visual": {}
+  },
+  {
+    "sceneId": "follow",
+    "kind": "outro",
+    "speaker": "M",
+    "text": "关注华尔街潘哥。需要判断类似消息时，回来查自己的核对表。",
+    "visual": {
+      "pan": [
+        {
+          "at": 0,
+          "pose": 2,
+          "gaze": "viewer"
+        },
+        {
+          "at": 1.8,
+          "pose": 1,
+          "gaze": "viewer"
+        }
+      ],
+      "chili": [
+        {
+          "at": 0,
+          "pose": 3,
+          "gaze": "partner"
+        }
+      ]
+    }
+  }
+]

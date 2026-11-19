@@ -1,0 +1,311 @@
+{
+  "title": "素材复用演示",
+  "brand": "华尔街潘哥 · 潘哥 × 小辣",
+  "fps": 30,
+  "sound": "silent-demo",
+  "sources": [],
+  "scenes": [
+    {
+      "sceneId": "reuse-hook",
+      "kind": "hook",
+      "speaker": "M",
+      "text": "同一套人物，不用重画，能把新故事演出来吗？",
+      "visual": {
+        "pan": [
+          {
+            "at": 0,
+            "pose": 2,
+            "gaze": "viewer"
+          },
+          {
+            "at": 1.5,
+            "pose": 1,
+            "gaze": "viewer"
+          }
+        ],
+        "chili": [
+          {
+            "at": 0,
+            "pose": 2,
+            "gaze": "partner"
+          }
+        ]
+      },
+      "start": 0,
+      "frames": 120,
+      "caps": [
+        {
+          "text": "同一套人物",
+          "startMs": 100.0,
+          "endMs": 1233.3333333333335
+        },
+        {
+          "text": "不用重画",
+          "startMs": 1333.3333333333335,
+          "endMs": 2466.666666666667
+        },
+        {
+          "text": "能把新故事演出来吗？",
+          "startMs": 2566.666666666667,
+          "endMs": 3700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "hello-pan",
+      "kind": "intro",
+      "speaker": "M",
+      "text": "大家好，我是潘哥。",
+      "compositionId": "intro-room",
+      "continuityGroup": "intro",
+      "visual": {
+        "pan": [
+          {
+            "at": 0,
+            "pose": 0,
+            "gaze": "viewer"
+          },
+          {
+            "at": 1.3,
+            "pose": 2,
+            "gaze": "viewer"
+          }
+        ],
+        "chili": [
+          {
+            "at": 0,
+            "pose": 3,
+            "gaze": "partner"
+          }
+        ]
+      },
+      "start": 120,
+      "frames": 90,
+      "caps": [
+        {
+          "text": "大家好",
+          "startMs": 100.0,
+          "endMs": 1350.0
+        },
+        {
+          "text": "我是潘哥",
+          "startMs": 1450.0000000000002,
+          "endMs": 2700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "hello-chili",
+      "kind": "intro",
+      "speaker": "F",
+      "text": "我是小辣。今天看看，已有的素材能怎么接起来？",
+      "compositionId": "intro-room",
+      "continuityGroup": "intro",
+      "visual": {
+        "pan": [
+          {
+            "at": 0,
+            "pose": 1,
+            "gaze": "partner"
+          }
+        ],
+        "chili": [
+          {
+            "at": 0,
+            "pose": 0,
+            "gaze": "viewer"
+          },
+          {
+            "at": 1.5,
+            "pose": 2,
+            "gaze": "partner"
+          }
+        ]
+      },
+      "start": 210,
+      "frames": 120,
+      "caps": [
+        {
+          "text": "我是小辣",
+          "startMs": 100.0,
+          "endMs": 1233.3333333333335
+        },
+        {
+          "text": "今天看看",
+          "startMs": 1333.3333333333335,
+          "endMs": 2466.666666666667
+        },
+        {
+          "text": "已有的素材能怎么接起来？",
+          "startMs": 2566.666666666667,
+          "endMs": 3700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "chip-open",
+      "kind": "chip",
+      "speaker": "M",
+      "text": "先让芯片分开，再看看里头的数据怎么传。",
+      "visual": {},
+      "start": 330,
+      "frames": 120,
+      "caps": [
+        {
+          "text": "先让芯片分开",
+          "startMs": 100.0,
+          "endMs": 1850.0
+        },
+        {
+          "text": "再看看里头的数据怎么传",
+          "startMs": 1950.0000000000002,
+          "endMs": 3700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "data-flow",
+      "kind": "array",
+      "speaker": "F",
+      "text": "这些格子是在一边计算，一边往后传吗？",
+      "visual": {},
+      "start": 450,
+      "frames": 120,
+      "caps": [
+        {
+          "text": "这些格子是在一边计算",
+          "startMs": 100.0,
+          "endMs": 1850.0
+        },
+        {
+          "text": "一边往后传吗？",
+          "startMs": 1950.0000000000002,
+          "endMs": 3700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "map-demo",
+      "kind": "geofence",
+      "speaker": "M",
+      "text": "地图里的范围也是会变的。这是示意，不是真实服务地图。",
+      "visual": {},
+      "start": 570,
+      "frames": 180,
+      "caps": [
+        {
+          "text": "地图里的范围也是会变的",
+          "startMs": 100.0,
+          "endMs": 1900.0000000000002
+        },
+        {
+          "text": "这是示意",
+          "startMs": 2000.0,
+          "endMs": 3800.0000000000005
+        },
+        {
+          "text": "不是真实服务地图",
+          "startMs": 3900.0000000000005,
+          "endMs": 5700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "cost-demo",
+      "kind": "cost",
+      "speaker": "M",
+      "text": "账单要按实际条件算。这一页的数字，只用来演示计算。",
+      "visual": {
+        "price": 20000,
+        "monthly": 100,
+        "freeMonths": 1
+      },
+      "start": 750,
+      "frames": 150,
+      "caps": [
+        {
+          "text": "账单要按实际条件算",
+          "startMs": 100.0,
+          "endMs": 1566.6666666666667
+        },
+        {
+          "text": "这一页的数字",
+          "startMs": 1666.6666666666667,
+          "endMs": 3133.3333333333335
+        },
+        {
+          "text": "只用来演示计算",
+          "startMs": 3233.3333333333335,
+          "endMs": 4700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "gates-demo",
+      "kind": "gates",
+      "speaker": "F",
+      "text": "买到了东西，也得确认自己有没有这些使用权限。",
+      "visual": {},
+      "start": 900,
+      "frames": 120,
+      "caps": [
+        {
+          "text": "买到了东西",
+          "startMs": 100.0,
+          "endMs": 1850.0
+        },
+        {
+          "text": "也得确认自己有没有这些使用权限",
+          "startMs": 1950.0000000000002,
+          "endMs": 3700.0
+        }
+      ]
+    },
+    {
+      "sceneId": "follow",
+      "kind": "outro",
+      "speaker": "M",
+      "text": "关注华尔街潘哥。需要判断类似消息时，回来查自己的核对表。",
+      "visual": {
+        "pan": [
+          {
+            "at": 0,
+            "pose": 2,
+            "gaze": "viewer"
+          },
+          {
+            "at": 1.8,
+            "pose": 1,
+            "gaze": "viewer"
+          }
+        ],
+        "chili": [
+          {
+            "at": 0,
+            "pose": 3,
+            "gaze": "partner"
+          }
+        ]
+      },
+      "start": 1020,
+      "frames": 120,
+      "caps": [
+        {
+          "text": "关注华尔街潘哥",
+          "startMs": 100.0,
+          "endMs": 1233.3333333333335
+        },
+        {
+          "text": "需要判断类似消息时",
+          "startMs": 1333.3333333333335,
+          "endMs": 2466.666666666667
+        },
+        {
+          "text": "回来查自己的核对表",
+          "startMs": 2566.666666666667,
+          "endMs": 3700.0
+        }
+      ]
+    }
+  ]
+}

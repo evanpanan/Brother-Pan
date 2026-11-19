@@ -1,0 +1,6 @@
+interface:
+  display_name: "华尔街潘哥视频"
+  short_description: "复用潘哥小辣人物和动画库，制作中文财经科技混合动画视频并检查交付质量"
+  default_prompt: "使用 $brother-pan-video 核实本期资料，制作潘哥与小辣的竖版混合动画视频、封面和发布文案。"
+policy:
+  allow_implicit_invocation: true

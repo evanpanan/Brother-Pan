@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "account": "华尔街潘哥",
+  "male_host": "潘哥",
+  "female_host": "小辣",
+  "updated": "2026-11-19",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": "按内容自然展开 不强制固定时长",
+    "platforms": [
+      "抖音",
+      "YouTube",
+      "视频号"
+    ]
+  },
+  "palette": {
+    "background": "#f3ede1",
+    "ink": "#183e2d",
+    "accent": "#c6ec28",
+    "sage": "#b9c7a8",
+    "gold": "#d4a45c"
+  },
+  "layout": {
+    "center_x": 540,
+    "caption_x": 200,
+    "caption_width": 680,
+    "caption_top": 1320,
+    "caption_bottom": 1450,
+    "subject_bottom": 1260,
+    "ui_note": "这些是当前竖版起点 仍需模拟平台UI和横纵裁切检查 不是平台永久安全标准"
+  },
+  "voices": {
+    "male": {
+      "id": "zh-CN-YunjianNeural",
+      "rate": "+8%",
+      "pitch": "+0Hz"
+    },
+    "female": {
+      "id": "zh-CN-XiaoxiaoNeural",
+      "rate": "+7%",
+      "pitch": "+2Hz"
+    },
+    "hook_rate": "+12%",
+    "availability": "在线服务可能变化 可替换配音 不承诺永久免费或商业许可"
+  },
+  "captions": {
+    "remove_sentence_punctuation": true,
+    "keep_question_marks": true,
+    "preserve_numeric_symbols": true,
+    "max_chars": 13,
+    "rule": "仅清理显示字幕和SRT 保留口播文稿标点供自然配音 小数点 百分号 负号等数值语义不得误删"
+  },
+  "characters": {
+    "side_sheet": "assets/characters/host-poses.png",
+    "front_sheet": "assets/characters/front-poses.png",
+    "style_reference": "assets/references/channel-style.png",
+    "female_clothing": "白色高领毛衣和红色辣椒图案",
+    "gaze": "对观众说话看镜头 两人聊天看对方 介绍物件和图解看主体 再自然回看观众",
+    "mouth": "只有当前发声者张嘴 倾听者闭嘴 片尾也检查"
+  },
+  "music": {
+    "opening_body_ending": "可用不同主题增强段落感 人声优先 适量有意义音效",
+    "local_library": "可在个人环境指定 不把某台机器的桌面路径当公共依赖",
+    "avoid": [
+      "未经再次指定的Wish",
+      "未经试听的带原旁白MP4音轨"
+    ]
+  },
+  "repository": "git@github.com:evanpanan/Brother-Pan.git"
+}

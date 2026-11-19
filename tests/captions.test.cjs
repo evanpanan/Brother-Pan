@@ -1,0 +1,12 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const Module=require('node:module');
+const deps=process.argv[2];
+if(!deps) throw new Error('Pass a starter node_modules directory');
+const ts=require(path.resolve(deps,'typescript'));
+const file=path.resolve(__dirname,'../library/captions.ts');
+const js=ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const mod=new Module(file,module);mod.filename=file;mod._compile(js,file);
+for(const [raw,wanted] of JSON.parse(fs.readFileSync(path.join(__dirname,'caption_cases.json'),'utf8')))assert.equal(mod.exports.cleanCaption(raw),wanted,raw);
+console.log('TypeScript caption semantic cases passed');

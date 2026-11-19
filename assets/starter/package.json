@@ -1,0 +1,26 @@
+{
+  "name": "brother-pan-episode",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "check": "tsc --noEmit",
+    "still": "remotion still src/index.ts BrotherPan outputs/cover.png --frame=0 --log=error",
+    "render": "remotion render src/index.ts BrotherPan outputs/video.mp4 --codec=h264 --crf=18 --concurrency=2 --log=error"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.540",
+    "@remotion/media": "4.0.540",
+    "remotion": "4.0.540",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/react": "19.3.0",
+    "@types/web": "0.0.166"
+  },
+  "engines": {
+    "node": "^22.13.0 || >=24"
+  }
+}

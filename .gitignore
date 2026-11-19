@@ -1,0 +1,17 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+!.env.example
+outputs/
+rendered/
+.generated/
+voice-cache/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.m4a

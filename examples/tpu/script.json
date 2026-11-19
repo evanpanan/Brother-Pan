@@ -1,0 +1,80 @@
+[
+  {
+    "id": 0,
+    "speaker": "M",
+    "kind": "hook",
+    "text": "谷歌自己造芯片，老黄的生意，是不是就难做了？"
+  },
+  {
+    "id": 1,
+    "speaker": "M",
+    "kind": "intro",
+    "text": "大家好，我是潘哥。"
+  },
+  {
+    "id": 2,
+    "speaker": "F",
+    "kind": "intro",
+    "text": "我是小辣。潘哥，这俩芯片，到底差哪儿？"
+  },
+  {
+    "id": 3,
+    "speaker": "M",
+    "kind": "photo",
+    "text": "你看，这就是谷歌早期的TPU，专门拿来算神经网络。"
+  },
+  {
+    "id": 4,
+    "speaker": "F",
+    "kind": "ask",
+    "text": "等会儿，英伟达那个，不也能算吗？"
+  },
+  {
+    "id": 5,
+    "speaker": "M",
+    "kind": "gpu",
+    "text": "能。打游戏、做科学计算、跑AI，GPU都能干。"
+  },
+  {
+    "id": 6,
+    "speaker": "M",
+    "kind": "explode",
+    "text": "谷歌盯上的，是这里头反复做的乘法和加法。"
+  },
+  {
+    "id": 7,
+    "speaker": "M",
+    "kind": "array",
+    "text": "数据传进格子，算一下，再递过去，接着加。"
+  },
+  {
+    "id": 8,
+    "speaker": "F",
+    "kind": "efficiency",
+    "text": "哦，不用老把数据取出来，再放回去？"
+  },
+  {
+    "id": 9,
+    "speaker": "M",
+    "kind": "software",
+    "text": "对。可换个芯片，原来的软件怎么办？"
+  },
+  {
+    "id": 10,
+    "speaker": "M",
+    "kind": "migration",
+    "text": "以前用CUDA写的东西，还得适配、测试，调到好用。"
+  },
+  {
+    "id": 11,
+    "speaker": "F",
+    "kind": "question",
+    "text": "省的芯片钱，别又花在改软件上了。"
+  },
+  {
+    "id": 12,
+    "speaker": "M",
+    "kind": "ending",
+    "text": "没错！芯片跑多快、软件改多久、最后省多少钱，都得算。关注华尔街潘哥，这张表留着，下次看到替代英伟达的消息，拿出来对对。"
+  }
+]

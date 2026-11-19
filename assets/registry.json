@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "id": "pan-master",
+      "path": "assets/characters/pan-master.png",
+      "kind": "character",
+      "tags": [
+        "潘哥",
+        "人物",
+        "母版"
+      ],
+      "origin": "brand-reference",
+      "description": "潘哥认可母版 不每期重新生成",
+      "sha256": "f0abe6d990866a29a6bae697ebef5e17deaa3bb74588a0cc3feae0f787b9a635"
+    },
+    {
+      "id": "chili-master",
+      "path": "assets/characters/chili-master.png",
+      "kind": "character",
+      "tags": [
+        "小辣",
+        "人物",
+        "辣椒"
+      ],
+      "origin": "brand-reference",
+      "description": "小辣认可母版 白色高领毛衣红辣椒",
+      "sha256": "b134bee3da50764b80eb0b94c7e0e5a46f837d89a489b704c6cb3ae3ef9eacbb"
+    },
+    {
+      "id": "hosts-side",
+      "path": "assets/characters/host-poses.png",
+      "kind": "character",
+      "tags": [
+        "侧面",
+        "侧向",
+        "聊天",
+        "姿势"
+      ],
+      "origin": "original-generated",
+      "description": "每人4个侧向表演 共8格 4列2行",
+      "sha256": "fc5291b3c27b6ea6c76d67b1569135be522243e4bbec0bad4443ca47674f9232"
+    },
+    {
+      "id": "hosts-front",
+      "path": "assets/characters/front-poses.png",
+      "kind": "character",
+      "tags": [
+        "正面",
+        "镜头",
+        "观众",
+        "招手"
+      ],
+      "origin": "original-generated",
+      "description": "每人4个正面表演 共8格 与side配合切换视线",
+      "sha256": "195c7481e6f0e7bf3dd2d6987dd4ca66c2eb617cf609a63fd28d678a7f2c8763"
+    },
+    {
+      "id": "channel-style",
+      "path": "assets/references/channel-style.png",
+      "kind": "reference",
+      "tags": [
+        "风格",
+        "米白",
+        "深绿",
+        "品牌"
+      ],
+      "origin": "brand-reference",
+      "description": "人物与配色统一参考",
+      "sha256": "5c198c31469056b0663c52fcee2af1c616f83e873c463d960c2f85c4f43d84fd"
+    },
+    {
+      "id": "cover-wide-reference",
+      "path": "assets/references/approved-cover-wide.png",
+      "kind": "reference",
+      "tags": [
+        "封面",
+        "大字",
+        "构图",
+        "横版"
+      ],
+      "origin": "brand-reference",
+      "description": "认可的完整封面构图 不是要求新视频改横版",
+      "sha256": "f4afa0578c83b162f547fb9d58409c1a10c979f0506580f7cf408e6ff4715dfb"
+    },
+    {
+      "id": "cover-portrait-reference",
+      "path": "assets/references/approved-cover-portrait.png",
+      "kind": "reference",
+      "tags": [
+        "封面",
+        "大字",
+        "竖版"
+      ],
+      "origin": "brand-reference",
+      "description": "认可的竖版封面 人物与标题前景结合",
+      "sha256": "cfb40158347417b49176224024273845ce0bd66bdc706b85984c23ced2a789d8"
+    },
+    {
+      "id": "cybercab-cabin",
+      "path": "assets/backgrounds/cybercab-cabin.png",
+      "kind": "background",
+      "tags": [
+        "车内",
+        "双人",
+        "场景",
+        "车辆"
+      ],
+      "origin": "original-generated",
+      "description": "双人停车情境背景 无方向盘 非现场照片",
+      "sha256": "c863ce502704ba769d502417e7b436590f58de961c7d8a88c4365c57e587af98"
+    },
+    {
+      "id": "chip-lab",
+      "path": "assets/backgrounds/chip-lab.png",
+      "kind": "background",
+      "tags": [
+        "芯片",
+        "实验室",
+        "工作台",
+        "背景"
+      ],
+      "origin": "original-generated",
+      "description": "空实验室与工作台 可叠人物道具",
+      "sha256": "663b0b8c46b31042af63d80365b7450a34664e1360096b9e9a230fd77a667de7"
+    },
+    {
+      "id": "cybercab-editorial",
+      "path": "assets/illustrations/cybercab-editorial.png",
+      "kind": "illustration",
+      "tags": [
+        "马斯克",
+        "车辆",
+        "Cybercab",
+        "封面"
+      ],
+      "origin": "original-generated",
+      "description": "透明背景编辑插画 非马斯克现场照片",
+      "sha256": "938e2f5b1a5756d71b504917986fbc357d82543543dbce9c5c7347b8e7ff6a45"
+    },
+    {
+      "id": "head-font",
+      "path": "assets/fonts/head.woff",
+      "kind": "font",
+      "tags": [
+        "字体",
+        "中文"
+      ],
+      "origin": "licensed-font",
+      "description": "随附OFL 继承已验证字体",
+      "sha256": "dd0d39a9780eb995c499af0c20cca93b1dfdda865da70871a20890b3e406b968"
+    },
+    {
+      "id": "host-wrapper",
+      "path": "library/hosts/Host.tsx",
+      "kind": "component",
+      "tags": [
+        "人物",
+        "视线",
+        "口型",
+        "说话人"
+      ],
+      "origin": "original-code",
+      "description": "统一主持人入口 只有activeSpeaker且voicing才张嘴",
+      "sha256": "727ef983b9689b1612a68eec48e46211812ad29c1084cd2f7c706cf7fc0f3031",
+      "parameters": [
+        "speaker",
+        "activeSpeaker",
+        "gaze",
+        "pose",
+        "t",
+        "x",
+        "y",
+        "scale",
+        "voicing"
+      ]
+    },
+    {
+      "id": "host-side-renderer",
+      "path": "library/hosts/Hosts.tsx",
+      "kind": "component",
+      "tags": [
+        "侧向",
+        "网格",
+        "身体",
+        "表演"
+      ],
+      "origin": "original-code",
+      "description": "侧向姿势和轻微网格形变 默认闭嘴",
+      "sha256": "98f2b75da2a56fc33e582bc9356b705ee64d908103509517eb742451df0bd3f2"
+    },
+    {
+      "id": "host-front-renderer",
+      "path": "library/hosts/FrontHosts.tsx",
+      "kind": "component",
+      "tags": [
+        "正面",
+        "网格",
+        "招手",
+        "表演"
+      ],
+      "origin": "original-code",
+      "description": "正面姿势和轻微网格形变 默认闭嘴",
+      "sha256": "52b1372da8993211c562fd47d21fd104e68259c13d075874417ac234e3b4d723"
+    },
+    {
+      "id": "side-mouth-metadata",
+      "path": "library/hosts/pose-mouths.json",
+      "kind": "metadata",
+      "tags": [
+        "口型",
+        "坐标",
+        "侧面"
+      ],
+      "origin": "original-code",
+      "description": "侧向母版口型坐标 配合具体图集 不能随意换图",
+      "sha256": "d4cd2e67a3880258549a986f9702e1660f5a60de5eae50cb28b554b4097ea8ef"
+    },
+    {
+      "id": "front-mouth-metadata",
+      "path": "library/hosts/front-mouths.json",
+      "kind": "metadata",
+      "tags": [
+        "口型",
+        "坐标",
+        "正面"
+      ],
+      "origin": "original-code",
+      "description": "正面母版口型坐标 配合具体图集",
+      "sha256": "f98ce71a49fbf7fcecd98f633b16c619c621d72d5249c6086f7ba3640c2fc902"
+    },
+    {
+      "id": "vehicles",
+      "path": "library/vector/vehicles.tsx",
+      "kind": "component",
+      "tags": [
+        "车辆",
+        "汽车",
+        "手机",
+        "道路",
+        "住宅",
+        "服务图标"
+      ],
+      "origin": "original-code",
+      "description": "可动画的SVG车辆和情境道具",
+      "sha256": "d37bca2eefd96b44e083a300604990149d21ce372e7f1ed6518dce1fcbb13973",
+      "parameters": [
+        "Car(x,y,z,t,open)",
+        "Phone(x,y,z)",
+        "Steering",
+        "Road",
+        "Home",
+        "Icon"
+      ]
+    },
+    {
+      "id": "chips",
+      "path": "library/vector/chips.tsx",
+      "kind": "component",
+      "tags": [
+        "芯片",
+        "GPU",
+        "TPU",
+        "板卡",
+        "拆解"
+      ],
+      "origin": "original-code",
+      "description": "芯片功能层展开与任务图标 非真实封装剖面",
+      "sha256": "097df75f7eff70badcc8867db44334509fafb19a13da3d245601012e63ef85ad",
+      "parameters": [
+        "Chip(x,y,z,label,open)",
+        "TaskIcon(kind,x,y,t)"
+      ]
+    },
+    {
+      "id": "mechanisms",
+      "path": "library/scenes/Mechanisms.tsx",
+      "kind": "component",
+      "tags": [
+        "账单",
+        "月费",
+        "地图",
+        "地理围栏",
+        "权限",
+        "收入",
+        "成本",
+        "计算阵列"
+      ],
+      "origin": "original-code",
+      "description": "参数化机制动画 不内置当前报价或运营范围",
+      "sha256": "3fe4d58e7e488c79cabe092bfd33104a081010aefe5d6856d537fc8183f680e6",
+      "parameters": [
+        "MonthlyCost",
+        "GeofenceDiagram",
+        "LicenseGates",
+        "ArrayGrid",
+        "IncomeFlow"
+      ]
+    },
+    {
+      "id": "stage",
+      "path": "library/Stage.tsx",
+      "kind": "component",
+      "tags": [
+        "字幕",
+        "布局",
+        "舞台",
+        "竖屏"
+      ],
+      "origin": "original-code",
+      "description": "统一画布标题字幕与句读清理 布局仍须实际检查",
+      "sha256": "eaeb9751750536884aa3f3383124ecb7df6f927f3cc6c9e3af085bc142f41f57"
+    },
+    {
+      "id": "caption-policy",
+      "path": "library/captions.ts",
+      "kind": "component",
+      "tags": [
+        "字幕",
+        "问号",
+        "标点",
+        "数字"
+      ],
+      "origin": "original-code",
+      "description": "显示字幕清理 保留问题及数值与代码含义",
+      "sha256": "7e9099d26fed3ddb4e567165602868e3bb56110fb0ca4bdf813f1dfca5b5b0db"
+    },
+    {
+      "id": "theme",
+      "path": "library/theme.tsx",
+      "kind": "component",
+      "tags": [
+        "配色",
+        "基础",
+        "文字",
+        "面板"
+      ],
+      "origin": "original-code",
+      "description": "统一色板与帧驱动缓动",
+      "sha256": "ca87fe709744734561e4c48827ef0132f24f37629071ac7d548e7d7a881f1422"
+    },
+    {
+      "id": "rocket",
+      "path": "library/vector/space.tsx",
+      "kind": "component",
+      "tags": [
+        "星舰",
+        "火箭",
+        "起飞",
+        "降落",
+        "助推器"
+      ],
+      "origin": "original-code",
+      "description": "既有星舰片提取的示意火箭 支持位置角度火焰与助推器形态 不是工程尺寸模型",
+      "parameters": [
+        "x",
+        "y",
+        "z",
+        "angle",
+        "flame",
+        "booster"
+      ],
+      "sha256": "1325c0719196f0d6fc334199cd068614462b5b63d69cb34dd35c42138c75299f"
+    }
+  ]
+}

@@ -15,7 +15,7 @@ def create(out, asset_ids=(), root=ROOT):
     shutil.copytree(root / 'assets/starter', out, dirs_exist_ok=True)
     shutil.copytree(root / 'library', out / 'src/library')
     (out / 'public').mkdir(exist_ok=True)
-    for name in ['host-poses.png', 'front-poses.png']:
+    for name in ['host-poses.png', 'front-poses.png', 'pan-avatar.png']:
         shutil.copy2(root / 'assets/characters' / name, out / 'public' / name)
     shutil.copy2(root / 'assets/fonts/head.woff', out / 'public/head.woff')
     shutil.copy2(root / 'assets/fonts/OFL-NotoSansSC.txt', out / 'public/OFL-NotoSansSC.txt')

@@ -11,7 +11,7 @@ type Gaze='viewer'|'partner'|'subject';
 type PoseCue={at:number;pose:number;gaze?:Gaze};
 type Visual={pan?:PoseCue[];chili?:PoseCue[];price?:number;monthly?:number;freeMonths?:number};
 type Shot={sceneId:string;kind:string;speaker:'M'|'F';text:string;start:number;frames:number;caps:{text:string;startMs:number;endMs:number}[];visual?:Visual};
-type Episode={title:string;brand:string;fps:number;audio?:string;scenes:Shot[]};
+type Episode={title:string;brand:string;account?:string;fps:number;audio?:string;scenes:Shot[]};
 const episode=data as unknown as Episode;
 function poseAt(cues:PoseCue[]|undefined,t:number,fallback:PoseCue){return cues?.filter(c=>c.at<=t).at(-1)||fallback;}
 export const Film=()=>{
@@ -30,5 +30,5 @@ export const Film=()=>{
  case 'intro':case 'duo':case 'outro':art=<><R x={130} y={920} w={820} h={245} c={C.sage} r={45}/><Host x={140} y={575} scale={.86} t={t} speaker="M" activeSpeaker={shot.speaker} voicing={voicing} pose={pan.pose} gaze={pan.gaze}/><Host x={550} y={575} scale={.86} t={t} speaker="F" activeSpeaker={shot.speaker} voicing={voicing} pose={chili.pose} gaze={chili.gaze}/>{shot.kind==='outro'&&<><R x={230} y={1140} w={620} h={90} c={C.ink}/><T y={1202} s={42} c={C.lime}>关注华尔街潘哥</T></>}</>;break;
  default:throw new Error(`Scene kind '${shot.kind}' has no renderer. Design and implement this scene in Film.tsx before export.`);
  }
- return <><Stage title={episode.title} brand={episode.brand} caption={cap?.text||''}>{art}</Stage>{episode.audio&&<Audio src={staticFile(episode.audio)}/>}</>;
+ return <><Stage title={episode.title} brand={episode.brand} account={episode.account} cover={shot.kind==='hook'} caption={cap?.text||''}>{art}</Stage>{episode.audio&&<Audio src={staticFile(episode.audio)}/>}</>;
 };

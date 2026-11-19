@@ -68,5 +68,13 @@
       "未经试听的带原旁白MP4音轨"
     ]
   },
-  "repository": "git@github.com:evanpanan/Brother-Pan.git"
+  "repository": "git@github.com:evanpanan/Brother-Pan.git",
+  "cover_header": {
+    "layout": "居中潘哥头像在上 账号名称在下 顶部不写话题署名副标题等其他文字 主体人物事件和大标题保留",
+    "avatar": "assets/characters/pan-avatar.png",
+    "avatar_top": 140,
+    "avatar_size": 136,
+    "name_baseline": 334,
+    "account": "华尔街潘哥"
+  }
 }

@@ -309,7 +309,7 @@
       ],
       "origin": "original-code",
       "description": "统一画布标题字幕与句读清理 布局仍须实际检查",
-      "sha256": "eaeb9751750536884aa3f3383124ecb7df6f927f3cc6c9e3af085bc142f41f57"
+      "sha256": "430ef62dede9c1c42764bb3b143518024f95df368456b1436f34fb203d799db2"
     },
     {
       "id": "caption-policy",
@@ -361,6 +361,32 @@
         "booster"
       ],
       "sha256": "1325c0719196f0d6fc334199cd068614462b5b63d69cb34dd35c42138c75299f"
+    },
+    {
+      "id": "pan-avatar",
+      "path": "assets/characters/pan-avatar.png",
+      "kind": "character",
+      "tags": [
+        "头像",
+        "封面",
+        "潘哥"
+      ],
+      "origin": "original-generated",
+      "description": "既有账号头像 含辣椒标记 用于首屏顶部",
+      "sha256": "34f314f45a3362adcc2fd0fdcf547ec4008f13f334ccfa02928928f17381a51c"
+    },
+    {
+      "id": "cover-brand",
+      "path": "library/CoverBrand.tsx",
+      "kind": "component",
+      "tags": [
+        "头像",
+        "封面",
+        "品牌区"
+      ],
+      "origin": "original-code",
+      "description": "首屏顶部只显示居中头像与下方账号名称 不放其他小字",
+      "sha256": "27dec93e97e050984a93e4378d35daa8367b9b22fa1a26bd8303ecde740ef98f"
     }
   ]
 }

@@ -401,6 +401,20 @@
       "origin": "original-code",
       "description": "收入增长但估值倍数下降的参数化假设演示 基准收入及倍数需为正值 不是目标价模型",
       "sha256": "f39b25557a478566df21fbb7dc01d92bb0f49b68115d5d28f9bba4c92c219e65"
+    },
+    {
+      "id": "wide-stage",
+      "path": "library/WideStage.tsx",
+      "kind": "component",
+      "tags": [
+        "横版",
+        "16比9",
+        "字幕",
+        "YouTube"
+      ],
+      "origin": "original-code",
+      "description": "1920×1080横版舞台 独立底部字幕和顶部品牌区 children需原生横版坐标 note须调用者提供 依赖head.woff与封面头像",
+      "sha256": "151e492c50a270dc592c2bbef1b77b69dac3fba856e87329e4f9f204b98430f1"
     }
   ]
 }

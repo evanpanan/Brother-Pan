@@ -3,7 +3,7 @@
   "account": "华尔街潘哥",
   "male_host": "潘哥",
   "female_host": "小辣",
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "format": {
     "width": 1080,
     "height": 1920,
@@ -76,5 +76,11 @@
     "avatar_size": 136,
     "name_baseline": 334,
     "account": "华尔街潘哥"
+  },
+  "cover_typography": {
+    "style": "短毛笔主题词＋简短副标题＋插画主体＋深绿结论条",
+    "accent": "沿用荧光绿系 可用偏黄绿毛笔主字",
+    "readability": "保持字号层次与边距 手机缩略图可辨 人名和关键事实不写错",
+    "scope": "参考用户认可封面 按选题与横竖画幅重排 不强制同一句式"
   }
 }

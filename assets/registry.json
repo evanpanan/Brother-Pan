@@ -415,6 +415,20 @@
       "origin": "original-code",
       "description": "1920×1080横版舞台 独立底部字幕和顶部品牌区 children需原生横版坐标 note须调用者提供 依赖head.woff与封面头像",
       "sha256": "151e492c50a270dc592c2bbef1b77b69dac3fba856e87329e4f9f204b98430f1"
+    },
+    {
+      "id": "rebound-path",
+      "path": "library/scenes/ReboundPath.tsx",
+      "kind": "component",
+      "tags": [
+        "熊市",
+        "反弹",
+        "历史节点",
+        "价格路径"
+      ],
+      "origin": "original-code",
+      "description": "选定节点的分段绘制与移动标记 要求至少两个有限坐标及正时长 使用者必须区分示意与真实逐日行情",
+      "sha256": "4ca44fc0d02309a03c37fb0fb42f08e10b58a13df53e6fc1ecd48c3a74a614ec"
     }
   ]
 }

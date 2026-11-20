@@ -428,7 +428,7 @@
       ],
       "origin": "original-code",
       "description": "选定节点的分段绘制与移动标记 要求至少两个有限坐标及正时长 使用者必须区分示意与真实逐日行情",
-      "sha256": "4ca44fc0d02309a03c37fb0fb42f08e10b58a13df53e6fc1ecd48c3a74a614ec"
+      "sha256": "bb5c20c297835daae1d181a17b10f2436af3b2af584b713d40962e3828f215a3"
     }
   ]
 }

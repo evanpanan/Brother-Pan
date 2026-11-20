@@ -387,6 +387,20 @@
       "origin": "original-code",
       "description": "首屏顶部只显示居中头像与下方账号名称 不放其他小字",
       "sha256": "27dec93e97e050984a93e4378d35daa8367b9b22fa1a26bd8303ecde740ef98f"
+    },
+    {
+      "id": "valuation-compression",
+      "path": "library/scenes/ValuationCompression.tsx",
+      "kind": "component",
+      "tags": [
+        "估值",
+        "市销率",
+        "增长",
+        "倍数压缩"
+      ],
+      "origin": "original-code",
+      "description": "收入增长但估值倍数下降的参数化假设演示 基准收入及倍数需为正值 不是目标价模型",
+      "sha256": "f39b25557a478566df21fbb7dc01d92bb0f49b68115d5d28f9bba4c92c219e65"
     }
   ]
 }

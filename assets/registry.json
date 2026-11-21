@@ -429,6 +429,21 @@
       "origin": "original-code",
       "description": "选定节点的分段绘制与移动标记 要求至少两个有限坐标及正时长 使用者必须区分示意与真实逐日行情",
       "sha256": "bb5c20c297835daae1d181a17b10f2436af3b2af584b713d40962e3828f215a3"
+    },
+    {
+      "id": "debt-equity",
+      "path": "library/scenes/DebtEquity.tsx",
+      "kind": "component",
+      "tags": [
+        "杠杆",
+        "借款",
+        "本金",
+        "损失",
+        "资产负债"
+      ],
+      "origin": "original-code",
+      "description": "资产下跌时债务优先扣除与净值损失示意 参数own debt drop 不是保证金强平点模型 不含利息税费",
+      "sha256": "b659103170d9e66fa5038550bc3e0c874ef0eef0f273ca2319d49875af1fdc57"
     }
   ]
 }

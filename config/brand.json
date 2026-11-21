@@ -3,7 +3,7 @@
   "account": "华尔街潘哥",
   "male_host": "潘哥",
   "female_host": "小辣",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "format": {
     "width": 1080,
     "height": 1920,
@@ -34,15 +34,16 @@
   "voices": {
     "male": {
       "id": "zh-CN-YunjianNeural",
-      "rate": "+8%",
-      "pitch": "+0Hz"
+      "rate": "+5%",
+      "pitch": "-2Hz",
+      "selection": "A版云健调整版 暂用 2026-11-21用户确认"
     },
     "female": {
       "id": "zh-CN-XiaoxiaoNeural",
       "rate": "+7%",
       "pitch": "+2Hz"
     },
-    "hook_rate": "+12%",
+    "hook_rate": "+5%",
     "availability": "在线服务可能变化 可替换配音 不承诺永久免费或商业许可"
   },
   "captions": {

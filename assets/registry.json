@@ -444,6 +444,22 @@
       "origin": "original-code",
       "description": "资产下跌时债务优先扣除与净值损失示意 参数own debt drop 不是保证金强平点模型 不含利息税费",
       "sha256": "b659103170d9e66fa5038550bc3e0c874ef0eef0f273ca2319d49875af1fdc57"
+    },
+    {
+      "id": "motion-objects",
+      "path": "library/scenes/MotionObjects.tsx",
+      "kind": "component",
+      "tags": [
+        "资金流",
+        "账单",
+        "工厂",
+        "日历",
+        "钱包",
+        "情境动画"
+      ],
+      "origin": "original-code",
+      "description": "原创纸币资金流日历钱包工厂传送带与资料照片框 需按口播重新安排时序 示例行情非真实行情 不含第三方图片",
+      "sha256": "46200aeeffe607cac82bdfcdc2477615f2fe62bb5607dcb2cd15f7ec7193ca28"
     }
   ]
 }

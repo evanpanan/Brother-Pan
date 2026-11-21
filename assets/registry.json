@@ -413,7 +413,7 @@
         "YouTube"
       ],
       "origin": "original-code",
-      "description": "1920×1080横版舞台 独立底部字幕和顶部品牌区 children需原生横版坐标 note须调用者提供 依赖head.woff与封面头像",
+      "description": "1920×1080横版舞台 封面品牌正文标题及底部字幕独立 正文固定署名与旧note均不显示 children需原生横版坐标",
       "sha256": "3a307ab7af304584789072c8cefc1fbbbfeee656a0dd5fc286dab218105895a5"
     },
     {

@@ -460,6 +460,35 @@
       "origin": "original-code",
       "description": "原创纸币资金流日历钱包工厂传送带与资料照片框 需按口播重新安排时序 示例行情非真实行情 不含第三方图片",
       "sha256": "46200aeeffe607cac82bdfcdc2477615f2fe62bb5607dcb2cd15f7ec7193ca28"
+    },
+    {
+      "id": "recovery-objects",
+      "path": "library/scenes/RecoveryObjects.tsx",
+      "kind": "component",
+      "tags": [
+        "历史回顾",
+        "建筑",
+        "银行",
+        "节点标记",
+        "恢复路径"
+      ],
+      "origin": "original-code",
+      "description": "参数化历史节点示意和概念建筑 明确传入主题及核实数据 非按比例行情图 不是预测模型",
+      "sha256": "b973380084206faa6f2ab0d3be9ee19f4af7c213a602119aef37113080f2b672"
+    },
+    {
+      "id": "mashanzheng-full",
+      "path": "assets/fonts/MaShanZheng-Regular.ttf",
+      "kind": "font",
+      "tags": [
+        "毛笔",
+        "艺术字",
+        "封面",
+        "完整字库"
+      ],
+      "origin": "licensed-font",
+      "description": "Ma Shan Zheng完整上游原版 SIL OFL见同目录OFL-MaShanZheng.txt 来源Google Fonts",
+      "sha256": "6d2546bb189c732a8ca29af9e22457b152387d158aa459e4ac2ce1e51788b7fb"
     }
   ]
 }

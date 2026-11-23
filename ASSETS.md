@@ -14,3 +14,5 @@
 资产登记和SHA-256见 `assets/registry.json`。复用库资产不意味着可把它冒充真实新闻现场。
 
 资金转移、账单到期、工厂传送带等原创对象见 [动作对象说明](docs/motion-objects.md)。真实照片由各期自行取得并署名，不随库分发。
+
+- `assets/fonts/MaShanZheng-Regular.ttf`：Ma Shan Zheng原版完整毛笔字体，随附SIL OFL；来源与新对象说明见 [恢复路径对象](docs/recovery-objects.md)。

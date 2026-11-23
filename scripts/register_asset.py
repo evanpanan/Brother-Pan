@@ -14,7 +14,7 @@ def register(path, asset_id, kind, tags, origin, description='', root=ROOT):
     rel = path.relative_to(root).as_posix()
     if not rel.startswith(('assets/', 'library/')) or not path.is_file():
         raise ValueError('Only existing assets/ or library/ files may be registered')
-    if path.suffix.lower() not in {'.png', '.jpg', '.jpeg', '.svg', '.tsx', '.ts', '.json', '.woff', '.webp'}:
+    if path.suffix.lower() not in {'.png', '.jpg', '.jpeg', '.svg', '.tsx', '.ts', '.json', '.woff', '.ttf', '.webp'}:
         raise ValueError('Unsupported reusable asset format')
     registry = root / 'assets/registry.json'
     data = json.loads(registry.read_text())

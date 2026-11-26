@@ -3,7 +3,7 @@
   "account": "华尔街潘哥",
   "male_host": "潘哥",
   "female_host": "小辣",
-  "updated": "2026-11-21",
+  "updated": "2026-11-26",
   "format": {
     "width": 1080,
     "height": 1920,
@@ -59,7 +59,8 @@
     "style_reference": "assets/references/channel-style.png",
     "female_clothing": "白色高领毛衣和红色辣椒图案",
     "gaze": "对观众说话看镜头 两人聊天看对方 介绍物件和图解看主体 再自然回看观众",
-    "mouth": "只有当前发声者张嘴 倾听者闭嘴 片尾也检查"
+    "mouth": "只有当前发声者张嘴 倾听者闭嘴 片尾也检查",
+    "female_personality": "成年人的憨憨可爱 会小迷糊嘴硬和自嘲 也会认真追问 有自己的判断 不幼儿化不刻意装笨 不只负责捧哏"
   },
   "music": {
     "opening_body_ending": "可用不同主题增强段落感 人声优先 适量有意义音效",

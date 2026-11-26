@@ -489,6 +489,22 @@
       "origin": "licensed-font",
       "description": "Ma Shan Zheng完整上游原版 SIL OFL见同目录OFL-MaShanZheng.txt 来源Google Fonts",
       "sha256": "6d2546bb189c732a8ca29af9e22457b152387d158aa459e4ac2ce1e51788b7fb"
+    },
+    {
+      "id": "account-objects",
+      "path": "library/scenes/AccountObjects.tsx",
+      "kind": "component",
+      "tags": [
+        "账户",
+        "现金流",
+        "基金份额",
+        "成本",
+        "持仓",
+        "手机"
+      ],
+      "origin": "original-code",
+      "description": "原创假设账户凭证现金托盘及对照物件 仅展示传入数值 不自动计算或连接券商 注意现值与购入价caption区分",
+      "sha256": "dbfe990528ea93136eea30db7faf44012a86024cd341c902686bf3467d243ef0"
     }
   ]
 }

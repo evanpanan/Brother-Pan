@@ -50,3 +50,6 @@ python3 /path/to/skill/scripts/verify_export.py outputs/video.mp4
 基础工程支持的kind见src/scene-kinds.json：hook/intro/duo/outro、chip、array、geofence、cost、gates、income、rocket。遇到新机制（如收入增长但预期落空、估值下调），需要在Film.tsx增加有真实动作逻辑的场景分支，并把kind加入清单。不能拿无关图表或默认双人画面替代。未知kind会拒绝渲染；审计也会报错。新增组件需要本期验证后才入库。
 
 素材已内置不等于全流程首次离线可跑：npm包和Remotion浏览器需要预装或首次联网下载。在线配音也需要网络；可使用事先准备的授权录音。
+
+## 多音字与显示稿
+行情读 háng qíng。brand.json 的 pronunciation.same_length_substitutions 用等长同音字生成语音（行情→航情），对齐时恢复原字，缓存按实际生成文本区分。该替换不是听音验收；人名、多音字与读数仍需实际检查。显式 ttsText 若改变字符数，应另行对齐原文，不能把同音替换字交付成字幕。

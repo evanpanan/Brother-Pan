@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from caption_rules import clean_caption, clean_srt, clean_timeline
-from prepare_voice import pages, voice_key
+from prepare_voice import pages, voice_key, pronunciation_text
 from new_episode import create
 from audit_episode import audit
 from register_asset import register
@@ -35,6 +35,18 @@ class Captions(unittest.TestCase):
     def test_real_word_timing_and_question(self):
         result=pages([{'text':'真的','startMs':100,'endMs':400},{'text':'吗','startMs':400,'endMs':700}], '真的吗？')
         self.assertEqual(result,[{'text':'真的吗？','startMs':100,'endMs':700}])
+
+    def test_pronunciation_keeps_written_caption_and_word_times(self):
+        config={'pronunciation':{'same_length_substitutions':{'行情':'航情'}}}
+        self.assertEqual(pronunciation_text('今天的行情。', config), '今天的航情。')
+        for words in [
+            [{'text':'航情','startMs':100,'endMs':500}],
+            [{'text':'航','startMs':100,'endMs':300},{'text':'情','startMs':300,'endMs':500}],
+        ]:
+            self.assertEqual(pages(words, '行情。', spoken_source='航情。'),
+                             [{'text':'行情','startMs':100,'endMs':500}])
+        with self.assertRaises(ValueError):
+            pronunciation_text('行情', {'pronunciation':{'same_length_substitutions':{'行情':'háng qíng'}}})
 
     def test_voice_cache_invalidates_configuration(self):
         keys={voice_key('同一句话',v,r,p) for v,r,p in [('male','+8%','+0Hz'),('female','+8%','+0Hz'),('male','+5%','+0Hz'),('male','+8%','+2Hz')]}

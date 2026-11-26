@@ -89,5 +89,18 @@
     "top_brand_line": false,
     "persistent_footer_note": false,
     "scope": "正文删除固定账号人物署名及常驻核对日期免责声明小字 封面头像账号名和片尾关注保留 必要示例标识素材署名按具体场景保留 资料日期来源放发布说明及来源文件"
+  },
+  "market_colors": {
+    "US": {
+      "up": "green",
+      "down": "red"
+    },
+    "rule": "美股上涨用绿 下跌用红 同时标明正负和方向 不仅靠颜色表示盈亏"
+  },
+  "pronunciation": {
+    "same_length_substitutions": {
+      "行情": "航情"
+    },
+    "note": "口播同音替换只用于生成语音 字幕和文稿仍显示行情 目标读音háng qíng 合成后仍需检查实际读音"
   }
 }

@@ -20,11 +20,21 @@ def voice_key(text, voice, rate, pitch):
     return hashlib.sha256(json.dumps([text, voice, rate, pitch], ensure_ascii=False).encode()).hexdigest()[:20]
 
 
-def pages(words, source, limit=13):
+def pronunciation_text(text, config):
+    for original, spoken in config.get('pronunciation', {}).get('same_length_substitutions', {}).items():
+        if not original or len(normalized(original)) != len(normalized(spoken)):
+            raise ValueError('Pronunciation substitutions must preserve normalized character count')
+        text = text.replace(original, spoken)
+    return text
+
+
+def pages(words, source, limit=13, spoken_source=None):
     words = [dict(w) for w in words]
     source = unicodedata.normalize('NFKC', source)
     positions = [i for i, ch in enumerate(source) if ch.isalnum()]
-    matched = ''.join(normalized(w['text']) for w in words) == normalized(source)
+    alignment = normalized(spoken_source if spoken_source is not None else source)
+    matched = (''.join(normalized(w['text']) for w in words) == alignment
+               and len(positions) == len(alignment))
     cursor, count, group, result = 0, 0, [], []
     for i, word in enumerate(words):
         if matched:
@@ -67,7 +77,7 @@ async def produce(project):
 
     async def one(index, row):
         choice = config['voices']['male' if row['speaker'] == 'M' else 'female']
-        text = row.get('ttsText', row['text'])
+        text = pronunciation_text(row.get('ttsText', row['text']), config)
         rate = row.get('rate', config['voices']['hook_rate'] if row.get('kind') == 'hook' else choice['rate'])
         key = voice_key(text, choice['id'], rate, choice['pitch'])
         mp3, meta = cache / f'{key}.mp3', cache / f'{key}.json'
@@ -106,7 +116,9 @@ async def produce(project):
         wav = cache / f'part-{i:03}.wav'
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(mp3), '-af', f'apad=whole_dur={frames/fps}', '-t', str(frames/fps), '-ar', '48000', '-ac', '1', str(wav)], check=True)
         listing.append(f"file 'part-{i:03}.wav'")
-        caps = pages(words, row.get('ttsText', row['text']), config['captions']['max_chars'])
+        spoken = pronunciation_text(row.get('ttsText', row['text']), config)
+        display = row['text'] if len(normalized(row['text'])) == len(normalized(spoken)) else row.get('ttsText', row['text'])
+        caps = pages(words, display, config['captions']['max_chars'], spoken_source=spoken)
         for cap in caps:
             srt.append(f"{len(srt)+1}\n{stamp(cursor/fps*1000+cap['startMs'])} --> {stamp(cursor/fps*1000+cap['endMs'])}\n{cap['text']}\n")
         scenes.append(dict(row, sceneId=row.get('sceneId', f'scene-{i:03}'), start=cursor, frames=frames, caps=caps))

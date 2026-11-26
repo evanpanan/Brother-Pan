@@ -505,6 +505,21 @@
       "origin": "original-code",
       "description": "原创假设账户凭证现金托盘及对照物件 仅展示传入数值 不自动计算或连接券商 注意现值与购入价caption区分",
       "sha256": "dbfe990528ea93136eea30db7faf44012a86024cd341c902686bf3467d243ef0"
+    },
+    {
+      "id": "commerce-objects",
+      "path": "library/scenes/CommerceObjects.tsx",
+      "kind": "component",
+      "tags": [
+        "电商",
+        "订单",
+        "费用",
+        "预期",
+        "纸箱"
+      ],
+      "origin": "original-code",
+      "description": "纸箱店面传送带费用闸门和预期压缩 可按口播时间驱动 无公司历史事实",
+      "sha256": "70ef310a491c10e399f718f74879db5bab4ceda0c407896fa9da55266ea81247"
     }
   ]
 }

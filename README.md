@@ -56,8 +56,7 @@ npm run render --prefix ./my-episode
 首次 Remotion 渲染可能下载其浏览器，需要网络。默认生成可运行的无声演示；为新片写文稿后再生成配音，不要把演示稿当模板逐镜换词。
 
 ```bash
-cd ..
-# 先按下方声音指南设置两个 Kokoro 模型路径并取得字幕对齐模型
+# 在仓库根目录，先按下方声音指南设置两个 Kokoro 模型路径并取得字幕对齐模型
 uv run --python 3.12 --with-requirements requirements-voice.txt python scripts/prepare_voice.py --project ./my-episode
 python3 scripts/audit_episode.py ./my-episode
 npm run render --prefix ./my-episode

@@ -535,6 +535,22 @@
       "origin": "original-code",
       "description": "原创室内窗景 仓库补货和配送车辆 无外部照片与历史数据",
       "sha256": "3f07a9bbb5e41384b1e068813d7b5e07f9f6e3cf27493d4f9d7812c685b7c1f9"
+    },
+    {
+      "id": "narrative-props",
+      "path": "library/scenes/NarrativeProps.tsx",
+      "kind": "component",
+      "tags": [
+        "叙事",
+        "选书",
+        "打包",
+        "凭证",
+        "家庭",
+        "等待"
+      ],
+      "origin": "original-code",
+      "description": "原创选书点击 合箱出库 纸质凭证与家庭等待道具 无具体公司事实默认值",
+      "sha256": "f42ab3665df64f759a53989d6afcc60e78a3faa0d975cdb90921dce2bcc38cb4"
     }
   ]
 }

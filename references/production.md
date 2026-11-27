@@ -56,3 +56,5 @@ python3 /path/to/skill/scripts/verify_export.py outputs/video.mp4
 
 ## 下一期男声：Kokoro Yunxi
 用户指定Kokoro zm_yunxi（Yunxi），小辣不变。选声配置已记录，不代表已安装或试听该引擎。现有prepare_voice.py只支持Edge，非Edge声线提前报错。新片应使用Kokoro专用合成与音频时序流程；不可沿用Edge专用rate/pitch参数，也不可静默回退旧声音。
+
+Yunxi节奏反馈（2026-11-27）：用户认为0.826倍试听偏慢，与小辣不匹配。改以1.05倍原生合成作对话试听，小辣保留+7%语速及+2Hz；1.05尚属试听起点，不能声称用户已确认。不要为凑一分钟放慢或加长空白，应调整试听文字长度。

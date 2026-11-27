@@ -570,6 +570,22 @@
       "origin": "original-code",
       "description": "数据中心屋面开合和内部机柜展示，含独立双风机冷却设备和变压器。无具体园区数据。用法及实渲预览见 docs/data-hall.md",
       "sha256": "c2e31bf9f0db6028d2b0a047f79ac7387c189ea20fcec678ce304fdd05815a2f"
+    },
+    {
+      "id": "connected-action-objects",
+      "path": "library/scenes/ActionObjects.tsx",
+      "kind": "component",
+      "tags": [
+        "动作",
+        "机柜",
+        "运输",
+        "签字",
+        "手",
+        "物件接触"
+      ],
+      "origin": "original-code",
+      "description": "机柜开门、运输车、递物手势、签字笔及连续动作道具 集成前检查接触点和字幕安全区",
+      "sha256": "c0226488f900d84fdc0e2602606c6c00c133ef412cbf2ba0be9102f94845989d"
     }
   ]
 }

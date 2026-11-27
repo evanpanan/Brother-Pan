@@ -39,7 +39,7 @@
       "language": "普通话",
       "speed": 1.05,
       "selection": "用户指定 下一期起采用Kokoro Yunxi 不沿用Edge专用语速音高参数",
-      "pacing_note": "0.826倍试听被用户反馈偏慢 与小辣不搭 当前1.05倍为新试听起点 待用户确认 不以拉长到一分钟为由放慢"
+      "pacing_note": "保留Yunxi声线 使用完整轮次自然合成 恢复此前语气语速 不按字幕碎句拼接或逐句变速"
     },
     "female": {
       "id": "zh-CN-XiaoxiaoNeural",

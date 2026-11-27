@@ -53,3 +53,6 @@ python3 /path/to/skill/scripts/verify_export.py outputs/video.mp4
 
 ## 多音字与显示稿
 行情读 háng qíng。brand.json 的 pronunciation.same_length_substitutions 用等长同音字生成语音（行情→航情），对齐时恢复原字，缓存按实际生成文本区分。该替换不是听音验收；人名、多音字与读数仍需实际检查。显式 ttsText 若改变字符数，应另行对齐原文，不能把同音替换字交付成字幕。
+
+## 下一期男声：Kokoro Yunxi
+用户指定Kokoro zm_yunxi（Yunxi），小辣不变。选声配置已记录，不代表已安装或试听该引擎。现有prepare_voice.py只支持Edge，非Edge声线提前报错。新片应使用Kokoro专用合成与音频时序流程；不可沿用Edge专用rate/pitch参数，也不可静默回退旧声音。

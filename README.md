@@ -58,7 +58,7 @@ uv run --with edge-tts==7.3.1 python scripts/prepare_voice.py --project ./my-epi
 python3 scripts/audit_episode.py ./my-episode
 ```
 
-在线配音沿用 `zh-CN-YunjianNeural` 和 `zh-CN-XiaoxiaoNeural`，也支持准备好录音和时序后导入。未复制任何凭证，不保证供应商永久免费、永不变更或授予商用权。
+下一期起潘哥指定 **Kokoro `zm_yunxi`（Yunxi）**，小辣仍用 `zh-CN-XiaoxiaoNeural`。旧片不追溯换音。当前 `prepare_voice.py` 是Edge专用入口，遇到Kokoro会明确停止，不能把该ID传给Edge或静默换回旧男声。制作前需接通Kokoro合成及字幕对齐，或导入对应录音和时序。未复制任何凭证，不保证供应商永久免费、永不变更或授予商用权。
 
 [查看基础工程实际渲染的首帧](docs/starter-preview.png) · [验证记录](docs/validation.md)
 

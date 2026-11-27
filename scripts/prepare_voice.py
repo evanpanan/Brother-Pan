@@ -61,8 +61,14 @@ def stamp(ms):
     return f'{h:02}:{m:02}:{s:02},{ms:03}'
 
 
+def require_edge_voices(rows, config):
+    for row in rows:
+        choice = config['voices']['male' if row['speaker'] == 'M' else 'female']
+        if choice.get('provider', 'edge-tts') != 'edge-tts':
+            raise RuntimeError(f"{choice.get('provider')} voice {choice['id']} needs its own synthesis/alignment workflow; this script only supports edge-tts and will not substitute voices")
+
+
 async def produce(project):
-    import edge_tts
     project = Path(project).resolve()
     config = json.loads((project / 'brand.json').read_text())
     rows = json.loads((project / 'script.json').read_text())
@@ -70,6 +76,8 @@ async def produce(project):
         raise ValueError('script.json must be a nonempty scene array')
     if any(r.get('speaker') not in {'M', 'F'} or not r.get('text', '').strip() for r in rows):
         raise ValueError('Each scene needs text and speaker M/F')
+    require_edge_voices(rows, config)
+    import edge_tts
     cache = project / 'voice-cache'
     cache.mkdir(exist_ok=True)
     sem = asyncio.Semaphore(3)

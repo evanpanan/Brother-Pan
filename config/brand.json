@@ -33,18 +33,21 @@
   },
   "voices": {
     "male": {
-      "id": "zh-CN-YunjianNeural",
-      "rate": "+5%",
-      "pitch": "-2Hz",
-      "selection": "A版云健调整版 暂用 2026-11-21用户确认"
+      "provider": "kokoro",
+      "id": "zm_yunxi",
+      "name": "Yunxi",
+      "language": "普通话",
+      "speed": 1.0,
+      "selection": "用户指定 下一期起采用Kokoro Yunxi 不沿用Edge专用语速音高参数"
     },
     "female": {
       "id": "zh-CN-XiaoxiaoNeural",
       "rate": "+7%",
-      "pitch": "+2Hz"
+      "pitch": "+2Hz",
+      "provider": "edge-tts"
     },
     "hook_rate": "+5%",
-    "availability": "在线服务可能变化 可替换配音 不承诺永久免费或商业许可"
+    "availability": "下一期男声选定Kokoro zm_yunxi 女声沿用Edge 准备语音前确认对应引擎和模型可用 不得静默换回Edge男声"
   },
   "captions": {
     "remove_sentence_punctuation": true,

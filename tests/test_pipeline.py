@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from caption_rules import clean_caption, clean_srt, clean_timeline
-from prepare_voice import pages, voice_key, pronunciation_text
+from prepare_voice import pages, voice_key, pronunciation_text, require_edge_voices
 from new_episode import create
 from audit_episode import audit
 from register_asset import register
@@ -47,6 +47,12 @@ class Captions(unittest.TestCase):
                              [{'text':'行情','startMs':100,'endMs':500}])
         with self.assertRaises(ValueError):
             pronunciation_text('行情', {'pronunciation':{'same_length_substitutions':{'行情':'háng qíng'}}})
+
+    def test_kokoro_is_not_sent_to_edge_or_silently_substituted(self):
+        config={'voices':{'male':{'provider':'kokoro','id':'zm_yunxi'}}}
+        with self.assertRaisesRegex(RuntimeError, 'zm_yunxi'):
+            require_edge_voices([{'speaker':'M'}],config)
+        require_edge_voices([{'speaker':'M'}], {'voices':{'male':{'id':'legacy-edge'}}})
 
     def test_voice_cache_invalidates_configuration(self):
         keys={voice_key('同一句话',v,r,p) for v,r,p in [('male','+8%','+0Hz'),('female','+8%','+0Hz'),('male','+5%','+0Hz'),('male','+8%','+2Hz')]}

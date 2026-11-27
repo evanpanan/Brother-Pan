@@ -551,6 +551,25 @@
       "origin": "original-code",
       "description": "原创选书点击 合箱出库 纸质凭证与家庭等待道具 无具体公司事实默认值",
       "sha256": "f42ab3665df64f759a53989d6afcc60e78a3faa0d975cdb90921dce2bcc38cb4"
+    },
+    {
+      "id": "data-hall-cutaway",
+      "path": "library/scenes/AtlasPlant.tsx",
+      "kind": "component",
+      "tags": [
+        "数据中心",
+        "机房",
+        "机柜",
+        "服务器",
+        "冷却",
+        "变压器",
+        "剖面",
+        "基础设施",
+        "等角投影"
+      ],
+      "origin": "original-code",
+      "description": "数据中心屋面开合和内部机柜展示，含独立双风机冷却设备和变压器。无具体园区数据。用法及实渲预览见 docs/data-hall.md",
+      "sha256": "c2e31bf9f0db6028d2b0a047f79ac7387c189ea20fcec678ce304fdd05815a2f"
     }
   ]
 }

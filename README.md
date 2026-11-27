@@ -134,3 +134,5 @@ CHANGELOG.md             对规则和库有影响的更新
 - [故事场景部件](docs/story-environment.md)：室内窗景、仓库补货与配送车辆，按剧情设计动作。
 
 - [叙事道具与事件动作](docs/narrative-props.md)：电脑选书、打包、凭证和家庭等待。
+
+- [数据中心机房剖面](docs/data-hall.md)可抬起屋面查看机柜，也可单独调用冷却机和配电变压器。

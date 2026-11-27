@@ -586,6 +586,24 @@
       "origin": "original-code",
       "description": "机柜开门、运输车、递物手势、签字笔及连续动作道具 集成前检查接触点和字幕安全区",
       "sha256": "c0226488f900d84fdc0e2602606c6c00c133ef412cbf2ba0be9102f94845989d"
+    },
+    {
+      "id": "office-story-props",
+      "path": "library/scenes/OfficeStoryProps.tsx",
+      "kind": "component",
+      "tags": [
+        "办公",
+        "工牌",
+        "电话",
+        "翻页",
+        "文件",
+        "人才流动",
+        "门",
+        "对话界面"
+      ],
+      "origin": "original-code",
+      "description": "原创办公叙事道具 门轴与工牌路径 电话接听 翻页 文件锁定 编程问答状态 依赖ActionObjects 参数与限制见docs/office-story-props.md",
+      "sha256": "19f9b8a4107b3b657666bcdbc07a37328b9041c291554297d4b34a0569ef3c08"
     }
   ]
 }

@@ -17,6 +17,10 @@
 
 全部有效规则见 [config/rules.json](config/rules.json)。它是最新规则清单，不是历史聊天记录。
 
+## 看这个工作流怎样讲故事
+
+[从一封写着“Ouch”的股东信写出一集](references/editorial.md) · [跑一段两人亲手拆开股票的动画](examples/stock-split/README.md) · [把观众离开的那一秒对回具体台词](references/quality.md) · [借鉴过哪些公开作品和制作方法](references/craft-sources.md)
+
 ## 安装与调用
 
 常见安装器：
@@ -43,22 +47,24 @@ git clone git@github.com:evanpanan/Brother-Pan.git ~/.codex/skills/brother-pan-v
 
 ```bash
 python3 scripts/new_episode.py --out ./my-episode
-cd my-episode
-npm ci
-npm run check
-npm run still
-npm run render
+npm ci --prefix ./my-episode
+npm run check --prefix ./my-episode
+npm run still --prefix ./my-episode
+npm run render --prefix ./my-episode
 ```
 
 首次 Remotion 渲染可能下载其浏览器，需要网络。默认生成可运行的无声演示；为新片写文稿后再生成配音，不要把演示稿当模板逐镜换词。
 
 ```bash
-# 在仓库目录运行；先安装 edge-tts，或用 uv 临时依赖
-uv run --with edge-tts==7.3.1 python scripts/prepare_voice.py --project ./my-episode
+cd ..
+# 先按下方声音指南设置两个 Kokoro 模型路径并取得字幕对齐模型
+uv run --python 3.12 --with-requirements requirements-voice.txt python scripts/prepare_voice.py --project ./my-episode
 python3 scripts/audit_episode.py ./my-episode
+npm run render --prefix ./my-episode
+python3 scripts/verify_export.py ./my-episode/outputs/video.mp4
 ```
 
-潘哥保留 **Kokoro zm_yunxi（Yunxi）**，使用完整对话轮次自然合成，恢复过去连贯的语气与语速。小辣沿用 Xiaoxiao（+7%、+2Hz）。字幕分页与配音合成切点独立。
+第一次使用请看[双人声音安装与试听指南](references/voice-setup.md)。潘哥保留 **Kokoro zm_yunxi（Yunxi）**，使用完整对话轮次自然合成，恢复过去连贯的语气与语速。小辣沿用 Xiaoxiao（+7%、+2Hz）。字幕分页与配音合成切点独立。
 
 [查看基础工程实际渲染的首帧](docs/starter-preview.png) · [验证记录](docs/validation.md)
 

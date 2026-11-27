@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 from caption_rules import clean_caption
 
@@ -50,6 +51,20 @@ def audit(project):
                 errors.append(f'{sid}: display punctuation remains')
             if len(cap['text']) > 30:
                 errors.append(f'{sid}: caption needs shorter paging/line fitting')
+        if 'voicedMs' in shot:
+            intervals = shot['voicedMs']
+            previous_end = 0
+            duration_ms = shot['frames'] * 1000 / fps
+            if not isinstance(intervals, list):
+                errors.append(f'{sid}: voicedMs must be a list of intervals')
+            else:
+                for interval in intervals:
+                    if (not isinstance(interval, list) or len(interval) != 2
+                            or not all(isinstance(n, (float, int)) and math.isfinite(n) for n in interval)
+                            or not previous_end <= interval[0] < interval[1] <= duration_ms + .001):
+                        errors.append(f'{sid}: mouth activity falls outside its speaking turn or overlaps')
+                        break
+                    previous_end = interval[1]
         if shot.get('factual') and (not shot.get('sourceIds') or not set(shot['sourceIds']) <= source_ids):
             errors.append(f'{sid}: factual claim lacks known source ids')
         for aid in shot.get('assets', []):

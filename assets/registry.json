@@ -604,6 +604,22 @@
       "origin": "original-code",
       "description": "原创办公叙事道具 门轴与工牌路径 电话接听 翻页 文件锁定 编程问答状态 依赖ActionObjects 参数与限制见docs/office-story-props.md",
       "sha256": "19f9b8a4107b3b657666bcdbc07a37328b9041c291554297d4b34a0569ef3c08"
+    },
+    {
+      "id": "split-certificate",
+      "path": "library/scenes/SplitCertificate.tsx",
+      "kind": "scene-component",
+      "tags": [
+        "拆股",
+        "一拆二",
+        "纸票",
+        "股票",
+        "悬念",
+        "撕开"
+      ],
+      "origin": "original-code",
+      "description": "单张纸票沿齿线被撕开 两半保留问号后分别显示拆分后的每股价格",
+      "sha256": "bf6fff4e4206e1d7269243b68dd13988b1cbbf51db392e5db6184790da81d035"
     }
   ]
 }

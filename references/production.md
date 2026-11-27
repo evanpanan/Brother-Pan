@@ -8,11 +8,11 @@
 
 ```bash
 python3 scripts/new_episode.py --out /path/to/new-episode
-uv run --with edge-tts==7.3.1 python scripts/prepare_voice.py --project /path/to/new-episode
+uv run --python 3.12 --with-requirements requirements-voice.txt python scripts/prepare_voice.py --project /path/to/new-episode
 python3 scripts/audit_episode.py /path/to/new-episode
 ```
 
-默认声音在 `config/brand.json`。缓存键包含文本、声线、语速和音高，不能只按文稿缓存，避免改声音仍用旧音频。语音在线服务失败时报告，不悄悄改用别的付费/克隆服务；也可导入已授权录音和对齐时序。
+第一次使用先按[双人声音指南](voice-setup.md)准备 Kokoro 文件和字幕对齐模型。默认声音在 `config/brand.json`。缓存键包含文本、声线、语速和音高，不能只按文稿缓存，避免改声音仍用旧音频。语音在线服务失败时报告，不悄悄改用别的付费/克隆服务；也可导入已授权录音和对齐时序。
 
 ## 字幕显示清理
 

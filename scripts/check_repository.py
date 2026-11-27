@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKIP = {'.git', 'node_modules', '__pycache__', '.venv', 'outputs', 'rendered', '.generated', 'voice-cache'}
+SKIP = {'.git', 'node_modules', '__pycache__', '.venv', 'outputs', 'rendered', '.generated', 'voice-cache', '.local'}
 
 
 def check(root=ROOT):

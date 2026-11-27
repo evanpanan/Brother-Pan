@@ -19,3 +19,9 @@ jobs:
       - run: npm ci --ignore-scripts --prefix "$RUNNER_TEMP/brother-pan-demo"
       - run: npm run check --prefix "$RUNNER_TEMP/brother-pan-demo"
       - run: node tests/captions.test.cjs "$RUNNER_TEMP/brother-pan-demo/node_modules"
+      - name: Check the stock split rehearsal from a new project
+        run: |
+          python3 examples/stock-split/create.py --out "$RUNNER_TEMP/stock-split"
+          ln -s "$RUNNER_TEMP/brother-pan-demo/node_modules" "$RUNNER_TEMP/stock-split/node_modules"
+          python3 scripts/audit_episode.py "$RUNNER_TEMP/stock-split"
+          npm run check --prefix "$RUNNER_TEMP/stock-split"

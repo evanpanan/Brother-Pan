@@ -10,12 +10,18 @@ import {MonthlyCost,GeofenceDiagram,LicenseGates,ArrayGrid,IncomeFlow} from './l
 type Gaze='viewer'|'partner'|'subject';
 type PoseCue={at:number;pose:number;gaze?:Gaze};
 type Visual={pan?:PoseCue[];chili?:PoseCue[];price?:number;monthly?:number;freeMonths?:number};
-type Shot={sceneId:string;kind:string;speaker:'M'|'F';text:string;start:number;frames:number;caps:{text:string;startMs:number;endMs:number}[];visual?:Visual};
+type Shot={sceneId:string;kind:string;speaker:'M'|'F';text:string;start:number;frames:number;voicedMs?:[number,number][];caps:{text:string;startMs:number;endMs:number}[];visual?:Visual};
 type Episode={title:string;brand:string;account?:string;fps:number;audio?:string;scenes:Shot[]};
 const episode=data as unknown as Episode;
 function poseAt(cues:PoseCue[]|undefined,t:number,fallback:PoseCue){return cues?.filter(c=>c.at<=t).at(-1)||fallback;}
 export const Film=()=>{
- const f=useCurrentFrame(),shot=episode.scenes.find(s=>f>=s.start&&f<s.start+s.frames)||episode.scenes.at(-1)!,t=(f-shot.start)/episode.fps,cap=shot.caps.find(c=>t*1000>=c.startMs&&t*1000<c.endMs),voicing=!!cap,v=shot.visual||{};
+ const f = useCurrentFrame();
+ const shot = episode.scenes.find(s => f >= s.start && f < s.start + s.frames) || episode.scenes.at(-1)!;
+ const t = (f - shot.start) / episode.fps;
+ const ms = t * 1000;
+ const cap = shot.caps.find(c => ms >= c.startMs && ms < c.endMs);
+ const voicing = Boolean(episode.audio) && (shot.voicedMs?.some(([a,b]) => ms >= a && ms < b) ?? !!cap);
+ const v = shot.visual || {};
  const pan=poseAt(v.pan,t,{at:0,pose:2,gaze:'viewer'}),chili=poseAt(v.chili,t,{at:0,pose:2,gaze:'partner'});
  let art;
  switch(shot.kind){

@@ -1,3 +1,4 @@
+import asyncio
 import hashlib
 import json
 import sys
@@ -8,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from caption_rules import clean_caption, clean_srt, clean_timeline
-from prepare_voice import pages, voice_key, pronunciation_text, require_edge_voices
+from prepare_voice import pages, voice_key, pronunciation_text, voice_choice, reaction_gap, manual_caps
 from new_episode import create
 from audit_episode import audit
 from register_asset import register
@@ -50,9 +51,31 @@ class Captions(unittest.TestCase):
 
     def test_kokoro_is_not_sent_to_edge_or_silently_substituted(self):
         config={'voices':{'male':{'provider':'kokoro','id':'zm_yunxi'}}}
-        with self.assertRaisesRegex(RuntimeError, 'zm_yunxi'):
-            require_edge_voices([{'speaker':'M'}],config)
-        require_edge_voices([{'speaker':'M'}], {'voices':{'male':{'id':'legacy-edge'}}})
+        provider, male = voice_choice({'speaker':'M'},config)
+        self.assertEqual((provider,male['id']), ('kokoro','zm_yunxi'))
+        legacy = {'voices':{'male':{'id':'legacy-edge'}}}
+        self.assertEqual(voice_choice({'speaker':'M'}, legacy)[0], 'edge-tts')
+
+    def test_reaction_and_caption_overrides(self):
+        a = {'text':'真的吗？','speaker':'F'}
+        b = {'text':'真的。','speaker':'M'}
+        self.assertGreater(reaction_gap(a,b), reaction_gap(b,b))
+        self.assertEqual(reaction_gap(dict(a,gapAfterMs=920),b), 920)
+        cues = [{'text':'真的！','startMs':0,'endMs':750}]
+        self.assertEqual(manual_caps(cues, '真的。', 840)[0]['text'], '真的')
+        with self.assertRaises(ValueError):
+            manual_caps(cues, '是真的。', 840)
+
+    def test_broken_provider_words_cannot_replace_financial_caption(self):
+        display = '行情跌了-1.5%？'
+        # Provider omitted a character and the signed percentage. Reject its
+        # fallback text rather than deliver the pronunciation aid or a wrong number.
+        incomplete = pages([{'text':'航情跌1','startMs':40,'endMs':660}], display,
+                           spoken_source='航情跌了-1.5%？')
+        with self.assertRaisesRegex(ValueError, '显示文稿'):
+            manual_caps(incomplete, display, 920)
+        fixed = [{'text':'行情跌了-1.5%？','startMs':40,'endMs':660}]
+        self.assertEqual(manual_caps(fixed, display, 920), fixed)
 
     def test_voice_cache_invalidates_configuration(self):
         keys={voice_key('同一句话',v,r,p) for v,r,p in [('male','+8%','+0Hz'),('female','+8%','+0Hz'),('male','+5%','+0Hz'),('male','+8%','+2Hz')]}
@@ -60,6 +83,18 @@ class Captions(unittest.TestCase):
 
 
 class PortableEpisode(unittest.TestCase):
+    def test_cannot_replace_the_original_recording_with_the_mix(self):
+        from prepare_voice import produce
+        with tempfile.TemporaryDirectory() as tmp:
+            project = create(Path(tmp) / 'film')
+            original = project / 'public/narration.wav'
+            original.write_bytes(b'my one original take')
+            rows = [{'speaker': 'F', 'text': '真的？', 'audioFile': 'public/narration.wav'}]
+            (project / 'script.json').write_text(json.dumps(rows))
+            with self.assertRaisesRegex(ValueError, 'recordings/'):
+                asyncio.run(produce(project))
+            self.assertEqual(original.read_bytes(), b'my one original take')
+
     def test_new_project_and_no_overwrite(self):
         with tempfile.TemporaryDirectory(prefix='brother pan ') as temp:
             out=Path(temp)/'中文 episode'

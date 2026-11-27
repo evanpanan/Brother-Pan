@@ -1,1 +1,6 @@
+# Tested with Python 3.12
 edge-tts==7.3.1
+kokoro-onnx==0.6.1
+misaki[zh]==0.9.4
+soundfile==0.14.0
+faster-whisper==1.2.1

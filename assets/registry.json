@@ -520,6 +520,21 @@
       "origin": "original-code",
       "description": "纸箱店面传送带费用闸门和预期压缩 可按口播时间驱动 无公司历史事实",
       "sha256": "bc9f9ceef591e6429a1436c9a5d99c3572c477baff1086a3b52bbcab946b34b9"
+    },
+    {
+      "id": "story-environment",
+      "path": "library/scenes/StoryEnvironment.tsx",
+      "kind": "component",
+      "tags": [
+        "场景",
+        "室内",
+        "仓库",
+        "配送",
+        "补货"
+      ],
+      "origin": "original-code",
+      "description": "原创室内窗景 仓库补货和配送车辆 无外部照片与历史数据",
+      "sha256": "3f07a9bbb5e41384b1e068813d7b5e07f9f6e3cf27493d4f9d7812c685b7c1f9"
     }
   ]
 }

@@ -3,7 +3,7 @@
   "account": "华尔街潘哥",
   "male_host": "潘哥",
   "female_host": "小辣",
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "format": {
     "width": 1080,
     "height": 1920,
@@ -33,13 +33,14 @@
   },
   "voices": {
     "male": {
-      "provider": "kokoro",
-      "id": "zm_yunxi",
-      "name": "Yunxi",
+      "provider": "edge-tts",
+      "id": "zh-CN-YunjianNeural",
+      "name": "云健",
       "language": "普通话",
-      "speed": 1.05,
-      "selection": "用户指定 下一期起采用Kokoro Yunxi 不沿用Edge专用语速音高参数",
-      "pacing_note": "保留Yunxi声线 使用完整轮次自然合成 恢复此前语气语速 不按字幕碎句拼接或逐句变速"
+      "rate": "+5%",
+      "pitch": "-2Hz",
+      "selection": "恢复用户此前认可的云健调整版",
+      "pacing_note": "用完整问答试听 检查重音 语尾和接话"
     },
     "female": {
       "id": "zh-CN-XiaoxiaoNeural",
@@ -48,7 +49,7 @@
       "provider": "edge-tts"
     },
     "hook_rate": "+5%",
-    "availability": "下一期男声选定Kokoro zm_yunxi 女声沿用Edge 准备语音前确认对应引擎和模型可用 不得静默换回Edge男声"
+    "availability": "云健和晓晓都通过 Edge 在线生成 也可导入各自已授权录音"
   },
   "captions": {
     "remove_sentence_punctuation": true,

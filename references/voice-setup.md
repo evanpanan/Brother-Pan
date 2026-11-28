@@ -1,30 +1,20 @@
 # 第一次让潘哥和小辣开口
 
-示例用 Python 3.12、uv、FFmpeg。从仓库根目录运行。潘哥用本机的 Kokoro v1.0 普通话 Yunxi，小辣沿用 Edge 在线 Xiaoxiao 的 +7% 语速和 +2Hz 音高。模型可跨期共用，单期的配音和时间码存在当期工程。
-
-## 准备模型
-
-从发行页取得 `kokoro-v1.0.int8.onnx` 和 `voices-v1.0.bin`，放进自己选择的目录。用 v1.0 的声音包，其中包含 `zm_yunxi`。[Kokoro 文件与下载入口](https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0)
-
-第一次用本机音频给男声字幕对齐时，下载多语言 Whisper small。以下命令仅下载对齐模型和软件依赖。后续男声合成和对齐都可以离线执行。[对齐模型](https://huggingface.co/Systran/faster-whisper-small)
-
-```bash
-uv run --python 3.12 --with-requirements requirements-voice.txt python -c "from faster_whisper import WhisperModel; WhisperModel('small', device='cpu', compute_type='int8')"
-```
+示例用 Python 3.12、uv、FFmpeg。从仓库根目录运行。默认两位主持都用 Edge 在线合成，潘哥用云健（+5%、-2Hz），小辣用晓晓（+7%、+2Hz）。在线服务会接收需要生成的台词。同一文本、声线和参数的已有合成可复用。
 
 ## 生成与复核
 
 ```bash
 python3 scripts/new_episode.py --out ./my-episode
-export KOKORO_MODEL="/path/to/models/kokoro-v1.0.int8.onnx"
-export KOKORO_VOICES="/path/to/models/voices-v1.0.bin"
-uv run --python 3.12 --with-requirements requirements-voice.txt python scripts/prepare_voice.py --project ./my-episode
+uv run --python 3.12 --with edge-tts python scripts/prepare_voice.py --project ./my-episode
 python3 scripts/audit_episode.py ./my-episode
 ```
 
-已有工程从设置两个模型路径开始。也可用参数 `--kokoro-model`、`--kokoro-voices`、`--align-model` 明确选文件和对齐模型目录。第一次生成小辣的某句台词会把该句送到 Edge 语音服务，遇到网络故障会显示原因。同一文本、声线和参数的已有合成可以直接复用。
+产物是工程里的 `public/narration.wav`、`outputs/captions.srt` 和 `src/episode.json`。Edge 词时间码用来对齐字幕，人物开口区间 `voicedMs` 从波形计算，单位是本镜开头起的毫秒。
 
-产物是工程里的 `public/narration.wav`、`outputs/captions.srt` 和 `src/episode.json`。男声按完整轮次合成，再把写好的文字对齐实际录音。特别长的轮次仅在字幕分析时分窗。女声使用服务返回的词时间码。每个镜头的 `voicedMs` 从实际波形计算，单位是从本镜开头起的毫秒，供人物在听对方和等待接话时闭嘴。
+### 旧工程的 Kokoro 音轨
+
+用 Kokoro 的旧工程仍可按其音色设置重建。获取 `kokoro-v1.0.int8.onnx` 和 `voices-v1.0.bin` 及多语言 Whisper small。安装 `requirements-voice.txt` 的依赖后，向合成命令传入 `--kokoro-model`、`--kokoro-voices` 和所需的 `--align-model`。字幕以实际合成音轨为准。[Kokoro 模型](https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0) · [对齐模型](https://huggingface.co/Systran/faster-whisper-small)
 
 ## 把停顿交给表演
 

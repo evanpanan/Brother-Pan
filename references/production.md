@@ -12,7 +12,7 @@ uv run --python 3.12 --with-requirements requirements-voice.txt python scripts/p
 python3 scripts/audit_episode.py /path/to/new-episode
 ```
 
-第一次使用先按[双人声音指南](voice-setup.md)准备 Kokoro 文件和字幕对齐模型。默认声音在 `config/brand.json`。缓存键包含文本、声线、语速和音高，不能只按文稿缓存，避免改声音仍用旧音频。语音在线服务失败时报告，不悄悄改用别的付费/克隆服务；也可导入已授权录音和对齐时序。
+第一次使用先按[双人声音指南](voice-setup.md)准备双人配音。默认声音在 `config/brand.json`。缓存键包含文本、声线、语速和音高，不能只按文稿缓存，避免改声音仍用旧音频。语音在线服务失败时报告，不悄悄改用别的付费/克隆服务；也可导入已授权录音和对齐时序。
 
 ## 字幕显示清理
 
@@ -56,7 +56,7 @@ python3 /path/to/skill/scripts/verify_export.py outputs/video.mp4
 
 ## 当前男声与合成
 
-潘哥保留 Kokoro zm_yunxi（Yunxi），使用过去自然连贯的语气和语速。每个完整对话轮次一次合成，保留标点和句内语调；字幕分页独立进行。小辣维持 Xiaoxiao（+7%、+2Hz）。不要按字幕长度切配音，也不要逐句改变速度或加密集停顿。
+潘哥恢复云健（+5%、-2Hz）。每个完整对话轮次一次合成，保留标点和句内语调；字幕分页独立进行。小辣维持 Xiaoxiao（+7%、+2Hz）。不要按字幕长度切配音，也不要逐句改变速度或加密集停顿。
 
 分词和接话反馈：口播文本保留完整词组，用自然承接句替代密集短句。检查合成器内部的批次边界、标点和静音裁切；保留结尾音节的衰减与角色反应时间。声线相同不代表语气相同，试听结论以实际声音为准。
 

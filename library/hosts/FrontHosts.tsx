@@ -13,11 +13,44 @@ function Puppet({name,t,talking,pose}:{name:'pan'|'chili',t:number,talking:boole
  const ref=useRef<HTMLCanvasElement>(null),layer=useRef<HTMLCanvasElement|null>(null),ready=useRef(false),[image,setImage]=useState<HTMLImageElement|null>(null),[handle]=useState(()=>delayRender('Loading approved character artwork'));
  useEffect(()=>{const im=new Image();im.onload=()=>setImage(im);im.onerror=()=>cancelRender(new Error('Character artwork missing'));im.src=staticFile('front-poses.png');},[name]);
  useLayoutEffect(()=>{if(!image||!ref.current)return;const cv=ref.current,c=cv.getContext('2d')!;if(!layer.current)layer.current=document.createElement('canvas');const src=layer.current;src.width=1280;src.height=1280;const p=src.getContext('2d')!;const pan=name==='pan',col=Math.max(0,Math.min(3,pose)),cw=image.width/4,ch=image.height/2; p.drawImage(image,col*cw,pan?0:ch,cw,ch,0,0,1280,1280);const mouth=mouths[pan?0:1][col];
- if(talking){const h=10+Math.abs(Math.sin(t*10.3))*24,w=mouth.w;p.save();p.translate(mouth.x,mouth.y+3);p.rotate(0);p.fillStyle='#953e25';p.strokeStyle='#85371f';p.lineWidth=6;p.beginPath();p.moveTo(-w/2,0);p.quadraticCurveTo(0,20,w/2,0);p.quadraticCurveTo(w*.38,15+h,0,20+h);p.quadraticCurveTo(-w*.35,18+h,-w/2,0);p.fill();p.stroke();p.fillStyle='#ee7850';p.beginPath();p.moveTo(-w*.26,20+h*.7);p.quadraticCurveTo(0,12+h*.65,w*.26,20+h*.7);p.quadraticCurveTo(0,29+h*.7,-w*.26,20+h*.7);p.fill();p.restore();}
+ if(talking){
+  const opening = 8 + Math.abs(Math.sin(t * 10.3)) * 13;
+  const halfWidth = mouth.w * .40;
+  p.save();
+  p.translate(mouth.x, mouth.y + 5);
+  p.fillStyle = '#723c2a';
+  p.beginPath();
+  p.moveTo(-halfWidth, 0);
+  p.quadraticCurveTo(0, 15, halfWidth, 0);
+  p.quadraticCurveTo(halfWidth * .6, 14 + opening, 0, 17 + opening);
+  p.quadraticCurveTo(-halfWidth * .65, 14 + opening, -halfWidth, 0);
+  p.fill();
+  p.restore();
+ }
  const emph=talking?pulse(t,.35,.95,1.7,2.7)+.7*pulse(t,5.2,6.1,6.8,7.8)+.55*pulse(t,11,12,13,14):0;
- const nod=talking?pulse(t,3,3.5,3.8,4.4):pulse(t,1.3,1.7,2,2.6),lean=(talking?1.8*emph:.5*nod)*(pan?1:-1)*Math.PI/180,head=(-1.6*emph+1.8*nod)*(pan?1:-1)*Math.PI/180;
- const warp=(x:number,y:number):P=>{let X=x,Y=y;const hw=1-ease((y-580)/170),ha=head*hw,dx=x-650,dy=y-670;X=650+dx*Math.cos(ha)-dy*Math.sin(ha);Y=670+dx*Math.sin(ha)+dy*Math.cos(ha);const wx=(pan?[330,1000,800,1000]:[320,1000,450,1000])[col],wy=(pan?[700,900,950,800]:[720,1050,700,780])[col],aw=Math.exp(-(((x-wx)/245)**2)-((y-wy)/240)**2)*ease((y-570)/100)*(pan?1:1-ease((x-440)/180));X+=(pan?58:-48)*emph*aw;Y-=(pan?90:85)*emph*aw;const lower=Math.exp(-(((x-650)/260)**2)-((y-1160)/150)**2);X+=(pan?15:-18)*emph*lower;const bx=X-650,by=Y-1210;return{x:650+bx*Math.cos(lean)-by*Math.sin(lean),y:1210+bx*Math.sin(lean)+by*Math.cos(lean)}};
- c.clearRect(0,0,1280,1280);const xs=[0,160,300,430,560,690,820,950,1080,1280],ys=[0,160,300,440,580,700,820,940,1060,1170,1280];for(let j=0;j<ys.length-1;j++)for(let i=0;i<xs.length-1;i++){const a={x:xs[i],y:ys[j]},b={x:xs[i+1],y:ys[j]},d={x:xs[i],y:ys[j+1]},e={x:xs[i+1],y:ys[j+1]};triangle(c,src,[a,b,e],[warp(a.x,a.y),warp(b.x,b.y),warp(e.x,e.y)]);triangle(c,src,[a,e,d],[warp(a.x,a.y),warp(e.x,e.y),warp(d.x,d.y)])}if(!ready.current){ready.current=true;continueRender(handle)}
+ const nod=talking?pulse(t,3,3.5,3.8,4.4):pulse(t,1.3,1.7,2,2.6);
+ const direction = pan ? 1 : -1;
+ const lean = (talking ? 1.8 * emph : .5 * nod) * direction * Math.PI / 180;
+ const head = (-1.6 * emph + 1.8 * nod) * direction * Math.PI / 180;
+ const handX = (pan ? [330, 1000, 800, 1000] : [320, 1000, 450, 1000])[col];
+ const handY = (pan ? [700, 900, 950, 800] : [720, 1050, 700, 780])[col];
+ const warp = (x: number, y: number): P => {
+  const dx = x - 650, dy = y - 670;
+  // Rotate the complete head as one piece. Blend to the torso below the jaw.
+  const headAngle = head * (1 - ease((y - 740) / 160));
+  let X = 650 + dx * Math.cos(headAngle) - dy * Math.sin(headAngle);
+  let Y = 670 + dx * Math.sin(headAngle) + dy * Math.cos(headAngle);
+  const lateral = Math.max(ease((385 - x) / 105), ease((x - 930) / 105));
+  const handWeight = Math.exp(-(((x - handX) / 245) ** 2) - (((y - handY) / 240) ** 2))
+   * Math.max(lateral * ease((y - 440) / 150), ease((y - 740) / 180));
+  X += (pan ? 58 : -48) * emph * handWeight;
+  Y -= (pan ? 90 : 85) * emph * handWeight;
+  const lower = Math.exp(-(((x - 650) / 260) ** 2) - (((y - 1160) / 150) ** 2));
+  X += (pan ? 15 : -18) * emph * lower * ease((y - 740) / 180);
+  const bx = X - 650, by = Y - 1210;
+  return {x:650 + bx * Math.cos(lean) - by * Math.sin(lean), y:1210 + bx * Math.sin(lean) + by * Math.cos(lean)};
+ };
+ c.clearRect(0,0,1280,1280);const xs=[0,160,300,385,430,560,690,820,930,950,1080,1280],ys=[0,160,300,440,580,700,740,820,940,1060,1170,1280];for(let j=0;j<ys.length-1;j++)for(let i=0;i<xs.length-1;i++){const a={x:xs[i],y:ys[j]},b={x:xs[i+1],y:ys[j]},d={x:xs[i],y:ys[j+1]},e={x:xs[i+1],y:ys[j+1]};triangle(c,src,[a,b,e],[warp(a.x,a.y),warp(b.x,b.y),warp(e.x,e.y)]);triangle(c,src,[a,e,d],[warp(a.x,a.y),warp(e.x,e.y),warp(d.x,d.y)])}if(!ready.current){ready.current=true;continueRender(handle)}
  },[image,t,talking,name,pose,handle]);
  return <foreignObject x={-55} y={25} width="480" height="480"><canvas ref={ref} width={1280} height={1280} style={{width:480,height:480}}/></foreignObject>;
 }

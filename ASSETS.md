@@ -16,3 +16,5 @@
 资金转移、账单到期、工厂传送带等原创对象见 [动作对象说明](docs/motion-objects.md)。真实照片由各期自行取得并署名，不随库分发。
 
 - `assets/fonts/MaShanZheng-Regular.ttf`：Ma Shan Zheng原版完整毛笔字体，随附SIL OFL；来源与新对象说明见 [恢复路径对象](docs/recovery-objects.md)。
+
+[双面回执](library/scenes/SubscriptionTicket.tsx)是可以翻转、盖章的原创 SVG 组件。将它放在 SVG 舞台内，传入 `title`、`amount` 和 `detail` 三行短文字，用 `reverseTitle`、`reverseAmount` 和 `reverseDetail` 设置背面。`flip` 从 0 走到 1 时翻面，`stamp` 从 0 走到 1 时盖下 `stampText`。印章落下前给金额留出读完的时间。票面以中心为原点，放大或旋转前给阴影和章边预留空间。

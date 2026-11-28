@@ -620,6 +620,22 @@
       "origin": "original-code",
       "description": "单张纸票沿齿线被撕开 两半保留问号后分别显示拆分后的每股价格",
       "sha256": "bf6fff4e4206e1d7269243b68dd13988b1cbbf51db392e5db6184790da81d035"
+    },
+    {
+      "id": "subscription-ticket",
+      "path": "library/scenes/SubscriptionTicket.tsx",
+      "kind": "component",
+      "tags": [
+        "票据",
+        "认购",
+        "退款",
+        "翻面",
+        "盖章",
+        "回执"
+      ],
+      "origin": "original-code",
+      "description": "独立 SVG 双面回执；传入正反面三行文字及翻面和盖章进度。以票中心为原点，510×318 单位；放入主体区。适合短标签和金额。",
+      "sha256": "622899c3612815bef2d8cdc66a746e7f18b0d92f8f1d9abfe5769b93fb96e0bd"
     }
   ]
 }
